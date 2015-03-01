@@ -1,0 +1,11 @@
+<h1>Search</h1>
+
+<%= render 'search' %>
+
+<div id="results">
+  <% @torrent.resultSet.each do |t| %>
+    <p><span class="size"><%= t[:size] %></span><a class="magnet title" href="<%= t[:link] %>"><%= t[:name] %></a></p>
+  <% end %>
+</div>
+
+<%= link_to 'Back', torrents_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @torrent.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @torrent.link %>
+</p>
+
+<%= link_to 'Edit', edit_torrent_path(@torrent) %> |
+<%= link_to 'Back', torrents_path %>

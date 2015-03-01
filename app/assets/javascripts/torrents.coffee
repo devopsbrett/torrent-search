@@ -1,0 +1,10 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).on 'ready page:load', ->
+  $("#results a.magnet").on "click", (event) ->
+    event.preventDefault();
+    turl = $(this).attr("href");
+    $.post "/torrents.json", { url: turl }, (data) ->
+      console.log(data);
