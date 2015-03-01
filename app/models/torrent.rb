@@ -3,7 +3,7 @@ class Torrent < ActiveRecord::Base
 
   def initialize
     @mechanize = Mechanize.new
-    @mechanize.add_auth ENV[:ruhost], ENV[:ruuser], ENV[:rupass]
+    @mechanize.add_auth ENV[:RUHOST], ENV[:RUUSER], ENV[:RUPASS]
     super
   end
 
@@ -28,7 +28,7 @@ class Torrent < ActiveRecord::Base
 
   def add_to_queue(url)
     was_success = false
-    addtorrent = @mechanize.post "#{ENV[:ruhost]}/php/addtorrent.php?", { url: url }
+    addtorrent = @mechanize.post "#{ENV[:RUHOST]}/php/addtorrent.php?", { url: url }
     was_success = true unless addtorrent.uri.query[/result[^=]*=Success/].nil?
     was_success
   end
